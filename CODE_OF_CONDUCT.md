@@ -1,53 +1,76 @@
-<!-- when updating this file also update https://github.com/flutter/.github/blob/main/CODE_OF_CONDUCT.md -->
+# Contributor Covenant Code of Conduct
 
-# Code of conduct
+## Our Pledge
 
-The Flutter project expects Flutter's contributors to act professionally
-and respectfully. Flutter contributors are expected to maintain the safety
-and dignity of Flutter's social environments (such as GitHub and Discord).
+In the interest of fostering an open and welcoming environment, we as
+contributors and maintainers pledge to making participation in our project and
+our community a harassment-free experience for everyone, regardless of age, body
+size, disability, ethnicity, sex characteristics, gender identity and expression,
+level of experience, education, socio-economic status, nationality, personal
+appearance, race, religion, or sexual identity and orientation.
 
-Specifically:
+## Our Standards
 
-* Respect people, their identities, their culture, and their work.
-* Be kind. Be courteous. Be welcoming.
-* Listen. Consider and acknowledge people's points before responding.
+Examples of behavior that contributes to creating a positive environment
+include:
 
-Should you experience anything that makes you feel unwelcome in Flutter's
-community, please contact [conduct@flutter.dev](mailto:conduct@flutter.dev)
-or, if you prefer, directly contact someone on the project, for instance
-[Hixie](mailto:ian@hixie.ch) or [Tim](mailto:timsneath@google.com).
+- Using welcoming and inclusive language
+- Being respectful of differing viewpoints and experiences
+- Gracefully accepting constructive criticism
+- Focusing on what is best for the community
+- Showing empathy towards other community members
 
-The Flutter project will not tolerate harassment in Flutter's
-community, even outside of Flutter's public communication channels.
+Examples of unacceptable behavior by participants include:
 
-## Conflict resolution
+- The use of sexualized language or imagery and unwelcome sexual attention or
+  advances
+- Trolling, insulting/derogatory comments, and personal or political attacks
+- Public or private harassment
+- Publishing others' private information, such as a physical or electronic
+  address, without explicit permission
+- Other conduct which could reasonably be considered inappropriate in a
+  professional setting
 
-When multiple contributors disagree on the direction for a particular
-patch or the general direction of the project, the conflict should be
-resolved by communication. The people who disagree should get
-together, try to understand each other's points of view, and work to
-find a design that addresses everyone's concerns.
+## Our Responsibilities
 
-This is usually sufficient to resolve issues. If you cannot come to an
-agreement, ask for the advice of a more senior member of the project.
+Project maintainers are responsible for clarifying the standards of acceptable
+behavior and are expected to take appropriate and fair corrective action in
+response to any instances of unacceptable behavior.
 
-Be wary of agreement by attrition, where one person argues a point
-repeatedly until other participants give up in the interests of moving
-on. This is not conflict resolution, as it does not address everyone's
-concerns. Be wary of agreement by compromise, where two good competing
-solutions are merged into one mediocre solution. A conflict is
-addressed when the participants agree that the final solution is
-_better_ than all the conflicting proposals. Sometimes the solution is
-more work than either of the proposals. [Embrace the yak
-shave](https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo#lazy-programming).
+Project maintainers have the right and responsibility to remove, edit, or
+reject comments, commits, code, wiki edits, issues, and other contributions
+that are not aligned to this Code of Conduct, or to ban temporarily or
+permanently any contributor for other behaviors that they deem inappropriate,
+threatening, offensive, or harmful.
 
-## Questions
+## Scope
 
-It's always ok to ask questions. Our systems are large, and nobody will be
-an expert in all the systems. Once you find the answer, document it in
-the first place you looked. That way, the next person will be brought
-up to speed even quicker.
+This Code of Conduct applies both within project spaces and in public spaces
+when an individual is representing the project or its community. Examples of
+representing a project or community include using an official project e-mail
+address, posting via an official social media account, or acting as an appointed
+representative at an online or offline event. Representation of a project may be
+further defined and clarified by project maintainers.
 
-!["I try not to make fun of people for admitting they don't know things, because for each thing 'everyone knows' by the time they're adults, every day there are, on average, 10,000 people in the US hearing about it for the first time. If I make fun of people, I train them not to tell me when they have those moments. And I miss out on the fun." "Diet coke and mentos thing? What's that?" "Oh, man! We're going to the grocery store." "Why?" "You're one of today's lucky 10,000."](https://imgs.xkcd.com/comics/ten_thousand.png)
+## Enforcement
 
-Source: _[xkcd, May 2012](https://xkcd.com/1053/)_
+Instances of abusive, harassing, or otherwise unacceptable behavior may be
+reported by contacting the project team at felangelov@gmail.com. All
+complaints will be reviewed and investigated and will result in a response that
+is deemed necessary and appropriate to the circumstances. The project team is
+obligated to maintain confidentiality with regard to the reporter of an incident.
+Further details of specific enforcement policies may be posted separately.
+
+Project maintainers who do not follow or enforce the Code of Conduct in good
+faith may face temporary or permanent repercussions as determined by other
+members of the project's leadership.
+
+## Attribution
+
+This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4,
+available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
+
+[homepage]: https://www.contributor-covenant.org
+
+For answers to common questions about this code of conduct, see
+https://www.contributor-covenant.org/faq

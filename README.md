@@ -1,116 +1,109 @@
-<a href="https://flutter.dev/">
-  <h1 align="center">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://storage.googleapis.com/cms-storage-bucket/6e19fee6b47b36ca613f.png">
-      <img alt="Flutter" src="https://storage.googleapis.com/cms-storage-bucket/c823e53b3a1a7b0d36a9.png">
-    </picture>
-  </h1>
-</a>
+[![pub package](https://img.shields.io/pub/v/analyzer.svg)](https://pub.dev/packages/analyzer)
+[![package publisher](https://img.shields.io/pub/publisher/analyzer.svg)](https://pub.dev/packages/analyzer/publisher)
 
-[![Build Status - Cirrus][]][Build status]
-[![Discord badge][]][Discord instructions]
-[![Twitter handle][]][Twitter badge]
-[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/5631/badge)](https://bestpractices.coreinfrastructure.org/projects/5631)
+This package provides a library that performs static analysis
+of Dart code. It is useful for tool integration and embedding.
 
-Flutter is Google's SDK for crafting beautiful, fast user experiences for
-mobile, web, and desktop from a single codebase. Flutter works with existing
-code, is used by developers and organizations around the world, and is free and
-open source.
+End-users should use the [dart analyze][] command-line tool
+to analyze their Dart code.
 
-## Documentation
+Integrators that want to add Dart support to their editor
+should use the _Dart Analysis Server_.
+The [Analysis Server API Specification][serverapi] is available.
+If you are adding Dart support to an editor or IDE, please let us know
+by emailing our [list][].
 
-* [Install Flutter](https://flutter.dev/get-started/)
-* [Flutter documentation](https://flutter.dev/docs)
-* [Development wiki](https://github.com/flutter/flutter/wiki)
-* [Contributing to Flutter](https://github.com/flutter/flutter/blob/master/CONTRIBUTING.md)
+## Configuring the analyzer
 
-For announcements about new releases, follow the
-[flutter-announce@googlegroups.com](https://groups.google.com/forum/#!forum/flutter-announce)
-mailing list. Our documentation also tracks [breaking
-changes](https://flutter.dev/docs/release/breaking-changes) across releases.
+Both `dart analyze` and Dart Analysis Server can be configured with an
+`analysis_options.yaml` file (using an `.analysis_options` file is deprecated).
+This YAML file can control which files and paths are analyzed,
+which lints are applied, and more.
 
-## Terms of service
+If you are embedding the analyzer library in your project, you are responsible
+for finding the analysis options file, parsing it, and configuring the analyzer.
 
-The Flutter tool may occasionally download resources from Google servers. By
-downloading or using the Flutter SDK you agree to the Google Terms of Service:
-https://policies.google.com/terms
+The analysis options file should live at the root of your project (for example,
+next to your `pubspec.yaml`). Different embedders of analyzer, such as
+`dart analyze` or Dart Analysis Server, may choose to find the file in various
+different ways. Consult their documentation to learn more.
 
-For example, when installed from GitHub (as opposed to from a prepackaged
-archive), the Flutter tool will download the Dart SDK from Google servers
-immediately when first run, as it is used to execute the `flutter` tool itself.
-This will also occur when Flutter is upgraded (e.g. by running the `flutter
-upgrade` command).
+Here is an example file that instructs the analyzer to ignore two files:
 
-## About Flutter
+```yaml
+analyzer:
+  exclude:
+    - test/_data/p4/lib/lib1.dart
+    - test/_data/p5/p5.dart
+    - test/_data/bad*.dart
+    - test/_brokendata/**
+```
 
-We think Flutter will help you create beautiful, fast apps, with a productive,
-extensible and open development model, whether you're targeting iOS or Android,
-web, Windows, macOS, Linux or embedding it as the UI toolkit for a platform of
-your choice.
+Note that you can use globs, as defined by the [glob package][glob].
 
-### Beautiful user experiences
+Here is an example file that enables two lint rules:
 
-We want to enable designers to deliver their full creative vision without being
-forced to water it down due to limitations of the underlying framework.
-Flutter's [layered architecture] gives you control over every pixel on the
-screen and its powerful compositing capabilities let you overlay and animate
-graphics, video, text, and controls without limitation. Flutter includes a full
-[set of widgets][widget catalog] that deliver pixel-perfect experiences whether
-you're building for iOS ([Cupertino]) or Android ([Material]), along with
-support for customizing or creating entirely new visual components.
+```yaml
+linter:
+  rules:
+    - camel_case_types
+    - empty_constructor_bodies
+```
 
-<p align="center"><img src="https://github.com/flutter/website/blob/main/src/assets/images/docs/homepage/reflectly-hero-600px.png?raw=true" alt="Reflectly hero image"></p>
+Check out all the available [Dart lint rules][lintrules].
 
-### Fast results
+You can combine the `analyzer` section and the `linter` section into a single
+configuration. Here is an example:
 
-Flutter is fast. It's powered by the same hardware-accelerated 2D graphics
-library that underpins Chrome and Android: [Skia]. We architected Flutter to
-support glitch-free, jank-free graphics at the native speed of your device.
-Flutter code is powered by the world-class [Dart platform], which enables
-compilation to 32-bit and 64-bit ARM machine code for iOS and Android, as well
-as JavaScript for the web and Intel x64 for desktop devices.
+```yaml
+analyzer:
+  exclude:
+    - test/_data/p4/lib/lib1.dart
+linter:
+  rules:
+    - camel_case_types
+```
 
-<p align="center"><img src="https://github.com/flutter/website/blob/main/src/assets/images/docs/homepage/dart-diagram-small.png?raw=true" alt="Dart diagram"></p>
+For more information, see the docs for
+[customizing static analysis][custom_analysis].
 
-### Productive development
+## Who uses this library?
 
-Flutter offers stateful hot reload, allowing you to make changes to your code
-and see the results instantly without restarting your app or losing its state.
+Many tools embed this library, such as:
 
-[![Hot reload animation][]][Hot reload]
+* [dart format] - a formatter for Dart code
+* [dart doc] - a documentation generator for Dart code
+* [Dart Analysis Server][analysis_sever] - a stateful server that supports IDEs and editors
 
-### Extensible and open model
+## Support
 
-Flutter works with any development tool (or none at all), and also includes
-editor plug-ins for both [Visual Studio Code] and [IntelliJ / Android Studio].
-Flutter provides [tens of thousands of packages][Flutter packages] to speed your
-development, regardless of your target platform. And accessing other native code
-is easy, with support for both [FFI] and [platform-specific APIs][platform
-channels].
+Post issues and feature requests at https://github.com/dart-lang/sdk/issues
 
-Flutter is a fully open-source project, and we welcome contributions.
-Information on how to get started can be found in our
-[contributor guide](CONTRIBUTING.md).
+Questions and discussions are welcome at the
+[Dart Analyzer Discussion Group][list].
 
-[flutter.dev]: https://flutter.dev
-[Build Status - Cirrus]: https://api.cirrus-ci.com/github/flutter/flutter.svg
-[Build status]: https://cirrus-ci.com/github/flutter/flutter/master
-[Discord instructions]: https://github.com/flutter/flutter/wiki/Chat
-[Discord badge]: https://img.shields.io/discord/608014603317936148
-[Twitter handle]: https://img.shields.io/twitter/follow/flutterdev.svg?style=social&label=Follow
-[Twitter badge]: https://twitter.com/intent/follow?screen_name=flutterdev
-[layered architecture]: https://flutter.dev/docs/resources/inside-flutter
-[architectural overview]: https://docs.flutter.dev/resources/architectural-overview
-[widget catalog]: https://flutter.dev/widgets/
-[Cupertino]: https://docs.flutter.dev/development/ui/widgets/cupertino
-[Material]: https://docs.flutter.dev/development/ui/widgets/material
-[Skia]: https://skia.org/
-[Dart platform]: https://dart.dev/
-[Hot reload animation]: https://github.com/flutter/website/blob/main/src/assets/images/docs/tools/android-studio/hot-reload.gif?raw=true
-[Hot reload]: https://docs.flutter.dev/development/tools/hot-reload
-[Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter
-[IntelliJ / Android Studio]: https://plugins.jetbrains.com/plugin/9212-flutter
-[Flutter packages]: https://pub.dev/flutter
-[FFI]: https://flutter.dev/docs/development/platform-integration/c-interop
-[platform channels]: https://flutter.dev/docs/development/platform-integration/platform-channels
-[interop example]: https://github.com/flutter/flutter/tree/master/examples/platform_channel
+## Background
+
+The APIs in this package were originally machine generated by a translator and were
+based on an earlier Java implementation. Several of the API's still look like their Java
+predecessors rather than clean Dart APIs.
+
+In addition, there is currently no clean distinction between public and internal
+APIs. We plan to address this issue but doing so will, unfortunately, require a
+large number of breaking changes. We will try to minimize the pain this causes for
+our clients, but some pain is inevitable.
+
+## License
+
+See the [LICENSE] file.
+
+[serverapi]: https://htmlpreview.github.io/?https://github.com/dart-lang/sdk/blob/main/pkg/analysis_server/doc/api.html
+[dart analyze]: https://dart.dev/tools/dart-analyze
+[list]: https://groups.google.com/a/dartlang.org/forum/#!forum/analyzer-discuss
+[lintrules]: https://dart-lang.github.io/linter/lints/
+[glob]: https://pub.dev/packages/glob
+[LICENSE]: https://github.com/dart-lang/sdk/blob/main/pkg/analyzer/LICENSE
+[dart format]: https://github.com/dart-lang/dart_style
+[dart doc]: https://github.com/dart-lang/dartdoc
+[analysis_sever]: https://github.com/dart-lang/sdk/tree/main/pkg/analysis_server
+[custom_analysis]: https://dart.dev/guides/language/analysis-options
